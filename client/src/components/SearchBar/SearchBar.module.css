@@ -1,0 +1,42 @@
+/*          Codigo CSS para SearchBar         */
+
+.searchBar_Container
+{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    border: black solid 5px;
+    margin: 50px auto;
+    background-color: grey;
+    height: 60px;
+    border-radius: 20px;
+}
+
+.searchBar_Menu
+{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 10px 200px;
+}
+
+.textBox_Name
+{
+    width: 400px;
+    height: 30px;
+    border: black solid 2px;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.button_Search
+{
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px 0;
+}
+
+
+

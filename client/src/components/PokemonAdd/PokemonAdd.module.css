@@ -1,0 +1,66 @@
+/*          Codigo CSS para PokemonAdd      */
+
+.PokemonAdd_body
+{
+    background-color: #ffbf00;
+}
+
+.PokemonAdd_title
+{
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background-color: black;
+    color: #ffbf00;
+    border-radius: 100px;
+    margin-top: 30px;
+}
+
+.PokemonAdd_main
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 50px 40px;                          /*      Eje X   /   Eje Y       */
+    height: 800px;
+    background-color: black;
+    border-radius: 20px;
+}
+
+.PokemonAdd_main_left
+{
+    margin: 20px 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+.image_URL
+{
+    width: 500px;
+}
+
+.tabla1
+{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+
+
+.PokemonAdd_main_right
+{
+    margin: 20px 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+
+

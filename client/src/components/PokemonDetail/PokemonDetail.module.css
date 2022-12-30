@@ -1,0 +1,95 @@
+/*          Estilos de pokemonDetail        */
+
+.detail_body
+{
+    background-color: #ffbf00;
+    min-height: 1000px;
+}
+
+.pokemonDetail_title
+{
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background-color: black;
+    color: #ffbf00;
+    border-radius: 100px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.pokemon_Detail
+{
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    width: 500px;
+    min-height: 700px;
+    background-color: black;
+    color: white;
+    border: white solid 5px;
+    border-radius: 20px;
+}
+
+.pokemon_Detail_Name
+{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.pokemon_Detail_Image
+{
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    width: 400px;
+    height: 450px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.pokemon_Image
+{
+    margin-top: 20px;
+    vertical-align: middle;
+}
+
+.pokemon_Detail_Datos
+{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+}
+
+.type_division
+{
+    float: left;
+    width: 50%;
+}
+
+
+
+.pokemon_No_Detail
+{
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    min-height: 300px;
+}
+

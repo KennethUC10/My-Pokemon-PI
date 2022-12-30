@@ -1,0 +1,30 @@
+/*/     Codigo de Landing Page      */
+
+.landing_body
+{
+    display: flex;
+    position: absolute;
+    background-image: url("../../images/wall2.jpg");
+    width: 100%;
+    height: 1200px;
+
+    /*      Esto alinea el boton al centro      */
+    align-items: center;
+    flex-direction: column;
+}
+
+.landing_button
+{
+    width: 150px;
+    height: 40px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: gold;
+    border: black solid 5px;
+    margin-top: 20px;
+}
+
+
+
+

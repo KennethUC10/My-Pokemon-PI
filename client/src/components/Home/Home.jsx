@@ -137,6 +137,9 @@ export default function Home() {
                 </div>
             }
 
+            {/*         Cambio 1        */}
+
+
             {/*         Aqui listo mis Pokemon          */}
             {
                 pokemonByName.name ?

@@ -37,14 +37,31 @@
     border-radius: 20px;
 }
 
-
-
-.image_URL
+.tabla_textBox
 {
-    width: 500px;
+    width: 600px;
+    border: black solid 2px;
 }
 
-.tabla1
+
+.textbox_number
+{
+    width: 100px;
+    text-align: right;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 5px;
+}
+
+.textbox_letter
+{
+    width: 300px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 5px;
+}
+
+.table_types
 {
     margin-top: 40px;
     margin-bottom: 20px;

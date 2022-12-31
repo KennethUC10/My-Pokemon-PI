@@ -9,13 +9,13 @@ export default function PokemonCard(props) {
     return (
         <div className={ style.body_PokemonCard }>
             <div className={ style.PokemonCard_title }>
-                { props.name.toUpperCase() }
+                <h4>{ props.name.toUpperCase() }</h4>
             </div>
-            <Link to={`/pokemon/${ props.id }`}>
-                <div className={ style.PokemonCard_image }>
+            <div className={ style.PokemonCard_image }>
+                <Link to={`/pokemon/${ props.id }`}>
                     <img className={ style.pokemon_image } src={ props.image } alt="" />
-                </div>
-            </Link>
+                </Link>
+            </div>
             <div className={ style.Pokemon_types }>
                 {
                     props.types.map( e => {

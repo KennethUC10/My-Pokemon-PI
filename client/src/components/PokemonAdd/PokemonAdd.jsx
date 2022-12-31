@@ -185,23 +185,19 @@ export default function PokemonAdd() {
             <div className={ style.PokemonAdd_title }>
                 <h1>Creacion de nuevo Pokemon</h1>                
             </div>
-            {/*
-            <Link to="/pokemon">Volver</Link>
-            */}
-
             <div className={ style.PokemonAdd_main }>
                 <div className={ style.PokemonAdd_main_left }>
                     <form onSubmit={ e => handleSubmit(e) }>
                         {
                             console.log(errors)
                         }
-                        <table>
+                        <table className={ style.tabla_textBox }>
                             <tr>
                                 <td>
                                     <label>Nombre :</label>
                                 </td>
                                 <td>
-                                    <input name="name" type="text" value={ entrada.name } onChange={ handleChange } ></input>
+                                    <input name="name" type="text" className={ style.textbox_letter } placeholder="Escribir nombre de Pokemon" value={ entrada.name } onChange={ handleChange } ></input>
                                 </td>
                             </tr>
                             <tr>
@@ -209,7 +205,7 @@ export default function PokemonAdd() {
                                     <label>Vida :</label>
                                 </td>
                                 <td>
-                                    <input name="life" type="number" value={ entrada.life } onChange={ handleChange } ></input>
+                                    <input name="life" type="number" className={ style.textbox_number } value={ entrada.life } onChange={ handleChange } ></input>
                                 </td>
                             </tr>
                             <tr>
@@ -217,7 +213,7 @@ export default function PokemonAdd() {
                                     <label>Ataque :</label>
                                 </td>
                                 <td>
-                                    <input name="attack" type="number" value={ entrada.attack } onChange={ handleChange } ></input>
+                                    <input name="attack" type="number" className={ style.textbox_number } value={ entrada.attack } onChange={ handleChange } ></input>
                                 </td>
                             </tr>
                             <tr>
@@ -225,7 +221,7 @@ export default function PokemonAdd() {
                                     <label>Defensa :</label>
                                 </td>
                                 <td>
-                                    <input name="defense" type="number" value={ entrada.defense } onChange={ handleChange } ></input>
+                                    <input name="defense" type="number" className={ style.textbox_number } value={ entrada.defense } onChange={ handleChange } ></input>
                                 </td>
                             </tr>
                             <tr>
@@ -233,7 +229,7 @@ export default function PokemonAdd() {
                                     <label>Velocidad :</label>
                                 </td>
                                 <td>
-                                    <input name="speed" type="number" value={ entrada.speed } onChange={ handleChange } ></input>
+                                    <input name="speed" type="number" className={ style.textbox_number } value={ entrada.speed } onChange={ handleChange } ></input>
                                 </td>
                             </tr>
                             <tr>
@@ -241,7 +237,7 @@ export default function PokemonAdd() {
                                     <label>Altura :</label>
                                 </td>
                                 <td>
-                                    <input name="height" type="number" value={ entrada.height } onChange={ handleChange } ></input>
+                                    <input name="height" type="number" className={ style.textbox_number } value={ entrada.height } onChange={ handleChange } ></input>
                                 </td>
                             </tr>
                             <tr>
@@ -249,16 +245,20 @@ export default function PokemonAdd() {
                                     <label>Peso :</label>
                                 </td>
                                 <td>
-                                    <input name="weight" type="number" value={ entrada.weight } onChange={ handleChange } ></input>
+                                    <input name="weight" type="number" className={ style.textbox_number } value={ entrada.weight } onChange={ handleChange } ></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>URL de la Imagen :</label>
+                                </td>
+                                <td>
+                                    <input name="image" type="text" className={ style.textbox_letter } placeholder="Escribir URL de la imagen del Pokemon" value={ entrada.image } onChange={ handleChange } ></input>
                                 </td>
                             </tr>
                         </table>
 
-                        <label>URL de la Imagen :</label>
-                        <input className={ style.image_URL } name="image" type="text" value={ entrada.image } onChange={ handleChange } ></input>
-
-
-                        <table className={ style.tabla1 } border="1">
+                        <table className={ style.table_types } border="1">
                             <tr>
                                 <th colSpan="5">Tipos de Pokemon</th>
                             </tr>

@@ -5,6 +5,8 @@ import style from "./Pagination.module.css";
 
 export default function Pagination({ page, setPage, max, input, setInput }) {
 
+    console.log(page, setPage, max, input, setInput);
+
     const nextPage = () => {
         setInput(parseInt(page) + 1);
         setPage(parseInt(page) + 1);

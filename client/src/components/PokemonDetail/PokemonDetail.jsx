@@ -5,8 +5,8 @@ import { getPokemonByID, setPokemon } from '../../redux/actions/pokemonAction';
 import NavBar from '../NavBar/NavBar';
 import style from "./PokemonDetail.module.css";
 
-//    Ultimate
 
+//    Ultimate
 
 export default function PokemonDetail() {
 

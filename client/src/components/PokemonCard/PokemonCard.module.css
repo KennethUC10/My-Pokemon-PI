@@ -1,3 +1,5 @@
+/*          Codigo CSS de Pokemon Card          */
+
 .pokemonCard
 {
     background-color: #ffbf00;
@@ -5,23 +7,18 @@
     height: 200px;
 }
 
-.hide
-{
-    visibility: hidden;
-}
-
-.body_PokemonCard
+.body_PokemonCard                               /*      Altura total : 370px     */
 {
     display: flex;
+    width: calc(16.666% - 20px);
+    height: 370px;                              /*      Antes era 400px     */
     justify-content: center;
     text-align: center;
     flex-direction: column;
     background-color: black;
     float: left;
-    width: calc(16.666% - 20px);
-    height: 400px;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 25px;
 }
 
 
@@ -41,28 +38,36 @@
 }
 
 
-.PokemonCard_title
+.PokemonCard_title                              /*      Altura total : 30px     */
 {
-    display: inline-block;
+    display: flex;
     margin: 0 auto;
+    justify-content: center;
+    text-align: center;
     width: 160px;
+    height: 20px;
     background-color: #ffbf00;
+    border: white solid 2px;
     color: black;
     border-radius: 10px;
+    margin-top: 10px;
 }
 
 
 .PokemonCard_image
 {
     width: 100%;
-    margin-top: 20px;
+    height: 200px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-
+/*
 .body_PokemonCard:hover + h3
 {
     visibility: visible;
 }
+*/
 
 .pokemon_image
 {
@@ -71,18 +76,12 @@
     text-align: center;
 }
 
-/*
-.pokemon_name
-{
-    float: left;
-    padding-left: 10px;
-}
-*/
 
+/*      Codigo de Types     */
 
 .Pokemon_types
 {
-    /*  display: flex;*/
+    height: 90px;
 }
 
 .type_division
@@ -96,7 +95,6 @@
     line-height: 25px;
     border-radius: 10px;
 }
-
 
 .pokemon_type
 {

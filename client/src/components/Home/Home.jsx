@@ -26,15 +26,18 @@ export default function Home() {
     const { listPokemon, filtrado } = useSelector(state => state.pokemon);
     const { listType } = useSelector(state => state.pokemon);
     const { pokemonByName } = useSelector(state => state.pokemon);
+    /*
     const { pokemonByType } = useSelector(state => state.pokemon);
-    //  console.log(pokemonByType);
+    console.log(pokemonByType);
+    */
 
 
     //      Este es el estado del listado de los Pokemon en totalidad y por pagina
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(12);
-    const max = Math.ceil(listPokemon.length / perPage);
     const listaFiltrada = filtradoLibreria(filtrado, listPokemon);
+    const max = Math.ceil(listaFiltrada.length / perPage);
+
 
     //      Este es el estado del select de Tipos, y si fue seleccionado un item
     const [input, setInput] = useState(1);
@@ -76,6 +79,9 @@ export default function Home() {
     }
 
 
+    //      Esto ayuda a desaparecer la barra de filtros
+    const [ocultarFiltro, setOcultarFiltro] = useState(true);
+
 
     //      Es mejor colocar el useEffect antes del RETURN
     useEffect(() => 
@@ -83,9 +89,7 @@ export default function Home() {
         dispatch(getAllPokemon());
         dispatch(getTypes());
         setOcultarFiltro(true);
-    }, [dispatch]);                 //  Lo que coloco dentro del arreglo, es de lo que depende el componentDitMount
-
-    const [ocultarFiltro, setOcultarFiltro] = useState(true);
+    }, [dispatch]);                                                     //  Lo que coloco dentro del arreglo, es de lo que depende el componentDitMount
 
 
     return (
@@ -111,7 +115,6 @@ export default function Home() {
                     <div className={ style.filter_Bar_Option }>
                         Ordenar por tipo :
                         <select className={ style.selectBox } defaultValue="first" onChange={ handleFilterType }>
-                            {/* <option value="first" selected={ selected } disabled>Search by type</option> */}
                             <option value="ALL">Tipos de Pokemon</option>
                             {
                                 listType?.map( t => {
@@ -136,8 +139,6 @@ export default function Home() {
                     </div>
                 </div>
             }
-
-            {/*         Cambio 1        */}
 
 
             {/*         Aqui listo mis Pokemon          */}

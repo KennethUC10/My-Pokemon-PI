@@ -60,8 +60,10 @@
 
 .pokemon_Image
 {
-    margin-top: 20px;
     vertical-align: middle;
+    width: 400px;
+    height: 450px;
+    border-radius: 20px;
 }
 
 .pokemon_Detail_Datos

@@ -3,6 +3,8 @@
 .PokemonAdd_body
 {
     background-color: #ffbf00;
+    height: 1200px;
+    width: 100%;
 }
 
 .PokemonAdd_title
@@ -22,62 +24,154 @@
 .PokemonAdd_main
 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     margin: 50px 40px;                          /*      Eje X   /   Eje Y       */
     height: 800px;
     background-color: black;
     border-radius: 20px;
 }
 
+.PokemonAdd_main_container
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+
+/*          Container 1         */
+
 .PokemonAdd_main_left
 {
+    display: flex;
+    height: 600px;
     margin: 20px 20px;
     padding: 20px;
     background-color: white;
     border-radius: 20px;
 }
 
+.PokemonAdd_main_left tr
+{
+    height: 60px;
+    line-height: 60px;
+}
+
+.PokemonAdd_main_left tr td
+{
+    padding-left: 20px;
+}
+
+
 .tabla_textBox
 {
+    display: block;
+    margin: 0 auto;
+
     width: 600px;
     border: black solid 2px;
+    border-radius: 20px;
 }
 
 
 .textbox_number
 {
-    width: 100px;
+    width: 350px;
     text-align: right;
-    height: 20px;
-    line-height: 20px;
-    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
 }
 
 .textbox_letter
 {
-    width: 300px;
-    height: 20px;
-    line-height: 20px;
-    border-radius: 5px;
-}
-
-.table_types
-{
-    margin-top: 40px;
-    margin-bottom: 20px;
+    width: 350px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    padding-left: 15px;
 }
 
 
+
+/*          Container 2         */
 
 .PokemonAdd_main_right
 {
+    display: flex;
+    height: 600px;
     margin: 20px 20px;
     padding: 20px;
     background-color: white;
     border-radius: 20px;
 }
 
+.table_types
+{
+    width: 850px;
+    display: block;
+    margin: 0 auto;
+
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    border: black solid 2px;
+    border-radius: 20px;
+}
+
+.PokemonAdd_main_right tr
+{
+    height: 60px;
+    line-height: 60px;
+}
+
+.PokemonAdd_main_right tr td
+{
+    width: 150px;
+    padding-left: 20px;
+}
 
 
+.table_types tr input:checked
+{
+    background-color: black;
+    color: white;
+}
+
+
+.checkbox
+{
+    background-color: black;
+    color: #ffbf00;
+    width: 110px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    padding-left: 10px;
+    border-radius: 20px;
+}
+
+
+
+
+/*          Container 3         */
+
+.container_button
+{
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.button_main
+{
+    display: block;
+    margin: 0 auto;
+    height: 60px;
+    width: 250px;
+    background-color: #ffbf00;
+    color: black;
+    border: white solid 5px;
+    border-radius: 20px;
+}
 
 

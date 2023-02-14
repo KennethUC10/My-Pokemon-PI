@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { filtradoLibreria } from '../../libraries/index.js'; 
 import { getAllPokemon, getPokemonByName, getPokemonByType, filterByCreated, filterByOrigen, filterByTipo, filterByAlphabet } from "../../redux/actions/pokemonAction.js";
@@ -11,8 +10,6 @@ import NavBar from '../NavBar/NavBar.jsx';
 import PokemonCard from '../PokemonCard/PokemonCard.jsx';
 import Pagination from '../Pagination/Pagination.jsx';
 import SearchBar from '../SearchBar/SearchBar.jsx';
-import pokemon_logo from "../../images/pokemon.png";
-import "./Home.css";
 import style from "./Home.module.css";
 
 
@@ -26,11 +23,11 @@ export default function Home() {
     const { listPokemon, filtrado } = useSelector(state => state.pokemon);
     const { listType } = useSelector(state => state.pokemon);
     const { pokemonByName } = useSelector(state => state.pokemon);
+
     /*
     const { pokemonByType } = useSelector(state => state.pokemon);
     console.log(pokemonByType);
     */
-
 
     //      Este es el estado del listado de los Pokemon en totalidad y por pagina
     const [page, setPage] = useState(1);
@@ -38,19 +35,16 @@ export default function Home() {
     const listaFiltrada = filtradoLibreria(filtrado, listPokemon);
     const max = Math.ceil(listaFiltrada.length / perPage);
 
-
     //      Este es el estado del select de Tipos, y si fue seleccionado un item
     const [input, setInput] = useState(1);
 
     //      Dato que envio a SearchBar.jsx
     const [selected, setSelected] = useState(false);
 
-    const error = useSelector(state => state.error);
-
-
-    //  handleAllPokes 
+    //  const error = useSelector(state => state.error);
 
     //      Lista todos los pokemon de nuevo
+    /*
     const allPokemons = (e) => {
         e.preventDefault();
         dispatch(getAllPokemon());
@@ -58,7 +52,7 @@ export default function Home() {
         setPage(1);
         setSelected(true);
     }
-
+    */
 
     //      Listar desde la API o creados
     const handleFilterCreated = (e) => {
@@ -71,17 +65,14 @@ export default function Home() {
         dispatch(filterByTipo(e.target.value));
     }
 
-
     //      Lista todos los pokemon por tipo
     const handleFilterAlphabet = (e) =>{
         //  e.preventDefault(e);
         dispatch(filterByAlphabet(e.target.value));
     }
 
-
     //      Esto ayuda a desaparecer la barra de filtros
     const [ocultarFiltro, setOcultarFiltro] = useState(true);
-
 
     //      Es mejor colocar el useEffect antes del RETURN
     useEffect(() => 
@@ -139,7 +130,6 @@ export default function Home() {
                     </div>
                 </div>
             }
-
 
             {/*         Aqui listo mis Pokemon          */}
             {

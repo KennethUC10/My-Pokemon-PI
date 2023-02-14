@@ -24,8 +24,8 @@ export default function NavBar() {
                     <img className={ style.nav_bar_image } src={ pokemon_logo } alt="" />
                 </div>
                 <div className={ style.nav_bar_right }>
-                    <div>
-                        <button className={ style.Button_Filtros } onClick={() => handleClick()}  >
+                    <div className={ style.Button_Reset }>
+                        <button className={ style.button } onClick={() => handleClick()}  >
                             <h3>Reset</h3>
                         </button>
                     </div>

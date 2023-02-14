@@ -10,13 +10,14 @@
 .body_PokemonCard                               /*      Altura total : 370px     */
 {
     display: flex;
-    width: calc(16.666% - 20px);
+    float: left;
+    width: calc(16.666% - 26px);
     height: 370px;                              /*      Antes era 400px     */
     justify-content: center;
     text-align: center;
     flex-direction: column;
     background-color: black;
-    float: left;
+    border: white solid 3px;
     margin: 10px;
     border-radius: 25px;
 }

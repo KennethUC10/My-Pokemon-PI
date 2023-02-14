@@ -41,17 +41,26 @@
     width: 120px;
     height: 40px;
     line-height: 40px;
-    background-color: white;
+    background-color: #ffbf00;
+    color: black;
+    border: white solid 5px;
     margin-right: 50px;
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .Button_Landing a
 {
     text-decoration: none;
     color: black;
+}
+
+.Button_Landing:hover
+{
+    background-color: #ffbf00;
+    color: white;
 }
 
 .Button_Home
@@ -61,11 +70,14 @@
     width: 120px;
     height: 40px;
     line-height: 40px;
-    background-color: white;
+    background-color: #ffbf00;
+    color: black;
+    border: white solid 5px;
     margin-left: 50px;
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .Button_Home a
@@ -117,17 +129,28 @@
     padding-top: 50px;
 }
 
-.Button_Filtros
+.Button_Reset
 {
-    display: block;
+    display: inline-block;
+    /*
     float: left;
+    */
     width: 120px;
     height: 40px;
     line-height: 40px;
-    background-color: white;
+    background-color: #ffbf00;
+    color: black;
+    border: white solid 5px;
     margin-right: 50px;
     border-radius: 15px;
     text-align: center;
+}
+
+.button
+{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .Button_Create_Pokemon
@@ -137,11 +160,14 @@
     width: 120px;
     height: 40px;
     line-height: 40px;
-    background-color: white;
+    background-color: #ffbf00;
+    color: black;
+    border: white solid 5px;
     margin-right: 50px;
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .Button_Create_Pokemon a

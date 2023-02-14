@@ -62,4 +62,22 @@ router.post("/", async(req, res) => {
 });
 
 
+router.delete("/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        await Pokemon.destroy({
+        where: {
+            id: id,
+        },
+        });
+        return res.status(200).send("Delete Succesfull");
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+});
+
+
+
+
 module.exports = router;

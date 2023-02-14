@@ -12,7 +12,9 @@ const getPokemonAPI = async () => {
         next: ""
     }
 
-    const totalPokemonAPI = await fetch(URL_API_POKEMON).then(res => res.json()).then(data => {
+    
+    //const totalPokemonAPI = await fetch("https://pokeapi.co/api/v2/pokemon").then(res => res.json()).then(data => {
+    const totalPokemonAPI = await fetch(URL_API_POKEMON).then(res => res.json()).then(data => {               //  Yo use esta 2022/12/31
     //  const totalPokemonAPI = await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=126").then(res => res.json()).then(data => { 
         //  console.log(data);
         return {
@@ -41,6 +43,7 @@ const getPokemonAPI = async () => {
             }
         );
     });
+
     return objetoPokemon.pokemon;
 }
 
@@ -178,7 +181,6 @@ const getPokemonByName = async (name) => {
         }
 
         return pokemonNameDB;
-
     }
     catch(error)
     {
@@ -229,7 +231,4 @@ const addPokemon = async (name, life, attack, defense, speed, height, weight, im
     }
 }
 
-
-//  module.exports = { getPokemonAPI, getPokemonDB, getAllInfoPokemon, getPokemonByID, getPokemonByName, addPokemon }
 module.exports = { getPokemonAPI, getPokemonDB, getAllInfoPokemon, getPokemonByID, addPokemon }
-

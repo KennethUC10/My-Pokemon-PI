@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { createPokemon } from '../../redux/actions/pokemonAction.js';
 import { validate, valSelect } from '../../validation/validator.js';
 import NavBar from '../NavBar/NavBar.jsx';
@@ -104,22 +104,7 @@ export default function PokemonAdd() {
         return obj;
     };
 
-
-
-
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { listPokemon } = useSelector(state => state.pokemon);
-    const { listType } = useSelector(state => state.pokemon);
-
-    /*
-    const types = useSelector(state => state.type);
-    const pokemons = useSelector(state => state.);
-    const [errors, setErrors] = useState();
-    const [errorSelect, setErrorSelect] = useState({});
-    const [disabled, setDisable] = useState(true);
-    */
-
     const [errors, setErrors] = useState({});
 
     const [entrada, setEntrada] = useState(
@@ -172,44 +157,159 @@ export default function PokemonAdd() {
 
 
     //  Funcion para el boton Submit
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const noErrors = Object.keys(errors).length === 0;
+        //  const noErrors = Object.keys(errors).length === 0;
 
-        if (noErrors)
+        if(entrada.name.toString().trim().length === 0)
         {
-            if(entrada.type.length > 3)
+            alert("Tu debes agregar un nombre");
+        }
+        else if(entrada.name.toString().trim().length > 20)
+        {
+            alert("El nombre no puede ser mayor de 20 caracteres");
+        }
+
+        else if (entrada.life.toString().trim().length === 0)
+        {
+            alert('La Vida esta Vacia');
+        }
+        else if (typeof entrada.life === 'number')
+        {
+            alert('La Vida no es un Numero');
+        }
+        else if (entrada.life <= 0 || entrada.life > 280)
+        {
+            alert('La Vida solo puede estar entre 0 a 280');
+        }
+
+
+        else if (entrada.attack.toString().trim().length === 0) {
+            alert('El Ataque esta Vacio');
+        }
+        else if (typeof entrada.attack === 'number') {
+            alert('El Ataque no es un Numero');
+        }
+        else if (entrada.attack <= 0 || entrada.attack > 280) {
+            alert('El Ataque solo puede estar entre 0 a 280');
+        }
+
+
+        else if (entrada.defense.toString().trim().length === 0)
+        {
+            alert('La Defenza esta Vacia');
+        }
+        else if (typeof entrada.defense === 'number')
+        {
+            alert('La Defenza no es un Numero');
+        }
+        else if (entrada.defense <= 0 || entrada.defense > 280)
+        {
+            alert('La Defenza solo puede estar entre 0 a 280');
+        }
+
+
+        else if (entrada.speed.toString().trim().length === 0)
+        {
+            alert('La Velocidad esta Vacia');
+        }
+        else if (typeof entrada.speed === 'number')
+        {
+            alert('La Velocidad no es un Numero');
+        }
+        else if (entrada.speed <= 0 || entrada.speed > 280)
+        {
+            alert('La Velocidad solo puede estar entre 0 a 280');
+        }
+
+
+        else if (entrada.height.toString().trim().length === 0)
+        {
+            alert('La Altura esta Vacia');
+        }
+        else if (typeof entrada.height === 'number')
+        {
+            alert('La Altura no es un Numero');
+        }
+        else if (entrada.height <= 0 || entrada.height > 280)
+        {
+            alert('La Altura solo puede estar entre 0 a 280');
+        }
+
+
+        else if (entrada.weight.toString().trim().length === 0)
+        {
+            alert('El Peso esta Vacio');
+        }
+        else if (typeof entrada.weight === 'number')
+        {
+            alert('El Peso no es un Numero');
+        }
+        else if (entrada.weight <= 0 || entrada.weight > 280)
+        {
+            alert('El Peso solo puede estar entre 0 a 280');
+        }
+
+        
+        else if (entrada.image.toString().trim().length === 0)
+        {
+            alert('La Imagen esta Vacia');
+        }
+        else if (!/^https?:\/\/[\w]+(\.[\w]+)+[/#?]?.*$/.test(entrada.image))
+        {
+            alert('La Url de la Imagen no es Valida');
+        }
+
+
+        else if(entrada.type.length === 0)
+        {
+            alert("Tu debes marcar al menos 1 tipo");
+        }
+        else if(entrada.type.length > 3)
+        {
+            alert("Solo se pueden marcar como maximo 3 tipos");
+        }
+
+
+        else
+        {
+            let mensaje = await createPokemon(entrada);
+
+            if(mensaje.success)
             {
-                alert("Solo se pueden marcar como maximo 3 tipos");
+                alert(mensaje.success);
+                navigate("/pokemon");
             }
             else
             {
-                dispatch(createPokemon(entrada));
-                alert("Pokemon creado con exito !!!");
-
-                setEntrada({
-                    name: "",
-                    life: 0,
-                    attack: 0,
-                    defense: 0,
-                    speed: 0,
-                    height: 0,
-                    weight: 0,
-                    types: [],
-                    image: ""
-                })
-                navigate("/pokemon");
+                alert(mensaje.error);
             }
+
+            setEntrada({
+                name: "",
+                life: 0,
+                attack: 0,
+                defense: 0,
+                speed: 0,
+                height: 0,
+                weight: 0,
+                types: [],
+                image: ""
+            })
         }
     }
 
+
+    /*
     const validation = (input) => {
         let errors = {};
+
         if(!input.name || input.name.length < 1)
         {
             errors.name = "Please, you must write a name";
         }
     }
+    */
 
 
     return (
@@ -298,110 +398,110 @@ export default function PokemonAdd() {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div className={ style.checkbox }>
-                                            <input type="checkbox" name="normal" value="normal" onChange={ e => handleCheck(e) } />
+                                        <div id="normal" className={ style.checkbox }>
+                                            <input id="normal" type="checkbox" className={ style.checkbox_clase } name="normal" value="normal" onChange={ e => handleCheck(e) } />
                                             Normal
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_fighting } name="fighting" value="fighting" onChange={ e => handleCheck(e) } />Fighting
+                                            <input type="checkbox" className={ style.checkbox_clase } name="fighting" value="fighting" onChange={ e => handleCheck(e) } />Fighting
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_flying } name="flying" value="flying" onChange={ e => handleCheck(e) } />Flying
+                                            <input type="checkbox" className={ style.checkbox_clase } name="flying" value="flying" onChange={ e => handleCheck(e) } />Flying
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_poison } name="poison" value="poison" onChange={ e => handleCheck(e) } />Poison
+                                            <input type="checkbox" className={ style.checkbox_clase } name="poison" value="poison" onChange={ e => handleCheck(e) } />Poison
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_ground } name="ground" value="ground" onChange={ e => handleCheck(e) } />Ground
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_rock } name="rock" value="rock" onChange={ e => handleCheck(e) } />Rock
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_bug } name="bug" value="bug" onChange={ e => handleCheck(e) } />Bug
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_ghost } name="ghost" value="ghost" onChange={ e => handleCheck(e) } />Ghost
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_steel } name="steel" value="steel" onChange={ e => handleCheck(e) } />Steel
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_fire } name="fire" value="fire" onChange={ e => handleCheck(e) } />Fire
+                                            <input type="checkbox" className={ style.checkbox_clase } name="ground" value="ground" onChange={ e => handleCheck(e) } />Ground
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_water } name="water" value="water" onChange={ e => handleCheck(e) } />Water
+                                            <input type="checkbox" className={ style.checkbox_clase } name="rock" value="rock" onChange={ e => handleCheck(e) } />Rock
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_grass } name="grass" value="grass" onChange={ e => handleCheck(e) } />Grass
+                                            <input type="checkbox" className={ style.checkbox_clase } name="bug" value="bug" onChange={ e => handleCheck(e) } />Bug
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_electric } name="electric" value="electric" onChange={ e => handleCheck(e) } />Electric
+                                            <input type="checkbox" className={ style.checkbox_clase } name="ghost" value="ghost" onChange={ e => handleCheck(e) } />Ghost
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_psychic } name="psychic" value="psychic" onChange={ e => handleCheck(e) } />Psychic
+                                            <input type="checkbox" className={ style.checkbox_clase } name="steel" value="steel" onChange={ e => handleCheck(e) } />Steel
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_ice } name="ice" value="ice" onChange={ e => handleCheck(e) } />Ice
+                                            <input type="checkbox" className={ style.checkbox_clase } name="fire" value="fire" onChange={ e => handleCheck(e) } />Fire
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_dragon } name="dragon" value="dragon" onChange={ e => handleCheck(e) } />Dragon
+                                            <input type="checkbox" className={ style.checkbox_clase } name="water" value="water" onChange={ e => handleCheck(e) } />Water
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_dark } name="dark" value="dark" onChange={ e => handleCheck(e) } />Dark
+                                            <input type="checkbox" className={ style.checkbox_clase } name="grass" value="grass" onChange={ e => handleCheck(e) } />Grass
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_fairy } name="fairy" value="fairy" onChange={ e => handleCheck(e) } />Fairy
+                                            <input type="checkbox" className={ style.checkbox_clase } name="electric" value="electric" onChange={ e => handleCheck(e) } />Electric
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_unknown } name="unknown" value="unknown" onChange={ e => handleCheck(e) } />Unknown
+                                            <input type="checkbox" className={ style.checkbox_clase } name="psychic" value="psychic" onChange={ e => handleCheck(e) } />Psychic
                                         </div>
                                     </td>
                                     <td>
                                         <div className={ style.checkbox }>
-                                            <input type="checkbox" className={ style.checkbox_shadow } name="shadow" value="shadow" onChange={ e => handleCheck(e) } />Shadow
+                                            <input type="checkbox" className={ style.checkbox_clase } name="ice" value="ice" onChange={ e => handleCheck(e) } />Ice
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div className={ style.checkbox }>
+                                            <input type="checkbox" className={ style.checkbox_clase } name="dragon" value="dragon" onChange={ e => handleCheck(e) } />Dragon
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={ style.checkbox }>
+                                            <input type="checkbox" className={ style.checkbox_clase } name="dark" value="dark" onChange={ e => handleCheck(e) } />Dark
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={ style.checkbox }>
+                                            <input type="checkbox" className={ style.checkbox_clase } name="fairy" value="fairy" onChange={ e => handleCheck(e) } />Fairy
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={ style.checkbox }>
+                                            <input type="checkbox" className={ style.checkbox_clase } name="unknown" value="unknown" onChange={ e => handleCheck(e) } />Unknown
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={ style.checkbox }>
+                                            <input type="checkbox" className={ style.checkbox_clase } name="shadow" value="shadow" onChange={ e => handleCheck(e) } />Shadow
                                         </div>
                                     </td>
                                 </tr>

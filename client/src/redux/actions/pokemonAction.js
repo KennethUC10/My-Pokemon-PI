@@ -70,27 +70,26 @@ export const setPokemon = (valor) => {
 }
 
 
-export const createPokemon = (payload) => {
-    return async (dispatch) => {
-        try
-        {
-            const response = await fetch("http://localhost:3001/pokemon", {
-                method: 'POST',
-                body: JSON.stringify(payload), // data can be `string` or {object}!
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            })
-            return response;
-            /*
-            const response = await fetch("http://localhost:3001/pokemon", payload);
-            return response;
-            */
-        }
-        catch(err)
-        {
-            console.log({ error: err.message });
-        }
+export const createPokemon = async (payload) => {
+    try
+    {
+        const response = await fetch("http://localhost:3001/pokemon", {
+            method: 'POST',
+            body: JSON.stringify(payload),                      // data can be `string` or {object}!
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then( (res) => res.json() )
+        .then(data => data)
+
+        console.log(response);
+
+        return response;
+    }
+    catch(err)
+    {
+        console.log({ error: err.message });
     }
 }
 

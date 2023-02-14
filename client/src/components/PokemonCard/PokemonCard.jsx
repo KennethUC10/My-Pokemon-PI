@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import style from "./PokemonCard.module.css";
 
 //    Ultimate
-
 export default function PokemonCard(props) {
     return (
         <div className={ style.body_PokemonCard }>
